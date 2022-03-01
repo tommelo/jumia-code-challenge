@@ -12,6 +12,7 @@ import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,8 +32,8 @@ public class CountryDataProviderConfig {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new ParameterNamesModule());
 
-        File file = resourceFile.getFile();
-        List<Country> countries = Arrays.asList(mapper.readValue(file, Country[].class));
+        InputStream stream = resourceFile.getInputStream();
+        List<Country> countries = Arrays.asList(mapper.readValue(stream, Country[].class));
 
         return new DefaultCountryDataProvider(countries);
     }
