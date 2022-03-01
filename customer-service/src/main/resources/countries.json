@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Cameroon",
+    "dialCode": "237",
+    "phoneNumberPattern": "\\(237\\)\\ ?[2368]\\d{7,8}$"
+  },
+  {
+    "name": "Ethiopia",
+    "dialCode": "251",
+    "phoneNumberPattern": "\\(251\\)\\ ?[1-59]\\d{8}$"
+  },
+  {
+    "name": "Morocco",
+    "dialCode": "212",
+    "phoneNumberPattern": "\\(212\\)\\ ?[5-9]\\d{8}$"
+  },
+  {
+    "name": "Mozambique",
+    "dialCode": "258",
+    "phoneNumberPattern": "\\(258\\)\\ ?[28]\\d{7,8}$"
+  },
+  {
+    "name": "Uganda",
+    "dialCode": "256",
+    "phoneNumberPattern": "\\(256\\)\\ ?\\d{9}$"
+  }
+]
