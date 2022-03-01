@@ -11,10 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -30,15 +28,14 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<GetCustomersResponse>> getCustomers(@Valid GetCustomersRequest request) throws EntityConversionException {
-        Boolean valid = Objects.isNull(request.getValid()) ? null : Boolean.valueOf(request.getValid());
-        List<Customer> customers = customerService.findAllCustomers(request.getCountries(), valid);
+    public ResponseEntity<List<GetCustomersResponse>> getCustomers(GetCustomersRequest request) throws EntityConversionException {
+        List<Customer> customers = customerService.findAllCustomers(request.getCountries(), request.getValid());
         return ResponseEntity.ok(entityConverter.convert(customers));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ BindException.class })
-    public Map<String, String> handleValidationException(BindException e) {
+    public Map<String, String> handleBindException(BindException e) {
         Map<String, String> response = new HashMap<>();
 
         List<ObjectError> errors = e.getBindingResult().getAllErrors();
