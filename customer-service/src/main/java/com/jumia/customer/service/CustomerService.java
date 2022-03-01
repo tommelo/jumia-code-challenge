@@ -1,5 +1,6 @@
 package com.jumia.customer.service;
 
+import com.jumia.customer.converter.EntityConversionException;
 import com.jumia.customer.model.Customer;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public interface CustomerService {
      * @param countries A set of country names to filter phone numbers by country
      * @param valid Boolean flag to filter valid or invalid phone numbers
      * @return customers The list of customers
+     * @throws EntityConversionException Throws an exception if the conversion of a db entity to application model fails
      */
-    List<Customer> findAllCustomers(Set<String> countries, Boolean valid);
+    List<Customer> findAllCustomers(Set<String> countries, Boolean valid) throws EntityConversionException;
 
 }
