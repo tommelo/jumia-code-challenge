@@ -1,14 +1,11 @@
 package com.jumia.customer.controller.data;
 
-import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 public class GetCustomersRequest {
 
     private Set<String> countries;
-
-    @Pattern(regexp = "^true$|^false$", message = "Value must be true or false")
-    private String valid;
+    private Boolean valid;
 
     public Set<String> getCountries() {
         return countries;
@@ -18,11 +15,11 @@ public class GetCustomersRequest {
         this.countries = countries;
     }
 
-    public String getValid() {
+    public Boolean getValid() {
         return valid;
     }
 
-    public void setValid(String valid) {
+    public void setValid(Boolean valid) {
         this.valid = valid;
     }
 
