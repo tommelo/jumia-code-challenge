@@ -27,6 +27,7 @@ public class DefaultCountryDataProvider implements CountryDataProvider {
         return Objects.isNull(countries)
                 ? new HashSet<>()
                 : countries.stream()
+                    .filter(c -> countryNameToDialCodeMap.containsKey(c))
                     .map(c -> countryNameToDialCodeMap.get(c))
                     .collect(Collectors.toSet());
     }
