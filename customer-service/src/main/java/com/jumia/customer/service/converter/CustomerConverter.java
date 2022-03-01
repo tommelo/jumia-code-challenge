@@ -7,12 +7,14 @@ import com.jumia.customer.entity.CustomerEntity;
 import com.jumia.customer.model.Country;
 import com.jumia.customer.model.Customer;
 import com.jumia.customer.model.Phone;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class CustomerConverter implements EntityConverter<CustomerEntity, Customer> {
 
     private final Pattern DIAL_CODE_EXTRACTOR_PATTERN = Pattern.compile("\\((.*?)\\)");
