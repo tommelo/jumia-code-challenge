@@ -6,10 +6,10 @@ public class Phone {
     private Country country;
     private boolean valid;
 
-    public Phone(String number, Country country, boolean valid) {
+    public Phone(String number, Country country) {
         this.number = number;
         this.country = country;
-        this.valid = valid;
+        this.valid = isPhoneNumberValid(number, country.getPhoneNumberPattern());
     }
 
     public String getNumber() {
@@ -34,6 +34,10 @@ public class Phone {
 
     public void setValid(boolean valid) {
         this.valid = valid;
+    }
+
+    private boolean isPhoneNumberValid(String number, String pattern) {
+        return number.matches(pattern);
     }
 
 }
