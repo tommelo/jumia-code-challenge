@@ -39,4 +39,11 @@ public interface CountryDataProvider {
      */
     Optional<Country> findCountryByDialCode(String dialCode);
 
+    /**
+     * Returns a set of country names.
+     *
+     * @return countryNames Set of country names
+     */
+    Set<String> getCountryNames();
+
 }
