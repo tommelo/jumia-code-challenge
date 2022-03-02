@@ -31,11 +31,7 @@ public class Phone {
     public boolean isValid() {
         return valid;
     }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
+    
     private boolean isPhoneNumberValid(String number, String pattern) {
         return number.matches(pattern);
     }
