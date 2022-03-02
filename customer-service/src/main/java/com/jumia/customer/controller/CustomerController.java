@@ -24,6 +24,7 @@ public class CustomerController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "*")
     public ResponseEntity<List<GetCustomersResponse>> getCustomers(GetCustomersRequest request) throws EntityConversionException {
         List<Customer> customers = customerService.findAllCustomers(request.getCountries(), request.getValid());
         return ResponseEntity.ok(entityConverter.convert(customers));
