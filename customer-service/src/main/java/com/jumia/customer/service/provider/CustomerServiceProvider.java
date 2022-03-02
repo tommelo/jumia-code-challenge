@@ -40,11 +40,11 @@ public class CustomerServiceProvider implements CustomerService {
         return entityConverter
                 .convert(entities)
                 .stream()
-                .filter(c -> matchesCustomerByPhoneState(c, valid))
+                .filter(c -> matchCustomerByPhoneState(c, valid))
                 .collect(Collectors.toList());
     }
 
-    private boolean matchesCustomerByPhoneState(Customer customer, Boolean valid) {
+    private boolean matchCustomerByPhoneState(Customer customer, Boolean valid) {
         return Objects.isNull(valid) || customer.getPhone().isValid() == valid;
     }
 
