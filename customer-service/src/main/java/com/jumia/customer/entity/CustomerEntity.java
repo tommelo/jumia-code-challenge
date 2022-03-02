@@ -16,6 +16,16 @@ public class CustomerEntity {
     private String name;
     private String phone;
 
+    public CustomerEntity() {
+
+    }
+
+    public CustomerEntity(int id, String name, String phone) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+    }
+
     public int getId() {
         return id;
     }
@@ -39,5 +49,5 @@ public class CustomerEntity {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
+
 }
