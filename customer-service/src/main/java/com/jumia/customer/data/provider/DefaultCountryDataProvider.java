@@ -37,4 +37,9 @@ public class DefaultCountryDataProvider implements CountryDataProvider {
         return Optional.ofNullable(dialCodeToCountryMap.get(dialCode));
     }
 
+    @Override
+    public Set<String> getCountryNames() {
+        return countryNameToDialCodeMap.keySet();
+    }
+
 }
